@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Box, Button, ButtonGroup, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import NavBar from "./Components/NavBar";
-import NavMenu from "./Components/NavMenu";
+import { Box, Button, ButtonGroup, Grid, GridItem, HStack, Show , Image, Flex} from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import NavMenu from "./components/NavMenu";
+import SubjectSearchBar from "./components/SubjectSearchBar";
+import img1 from "../src/Assets/img1.webp"
 
 function App() {
   return (
@@ -25,9 +26,13 @@ function App() {
       <GridItem area="nav" bgGradient='linear(to-l, #7928CA, #FF0080)' color="green" padding="10px">
         <NavMenu></NavMenu>
       </GridItem>
-      <GridItem area="main" color="blue">
+      <GridItem area="main" bgGradient='linear(to-l, #7928CA, #FF0080)' color="blue" height="300px" position="relative">
+        <Flex justify="space-between" align="center">
+          <SubjectSearchBar></SubjectSearchBar> {/* Search bar at left end */}
+          <Image src={img1} id="img1" boxSize="350px" mr="0px" mt="-50px" /> {/* Image at right end */} 
+        </Flex>
       </GridItem>
-      <GridItem area="footer" color="yellow">
+      <GridItem area="footer" bgGradient='linear(to-l, #7928CA, #FF0080)' color="yellow">
       </GridItem>
       
     </Grid>
