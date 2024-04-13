@@ -5,8 +5,9 @@ import NavBar from "./components/NavBar";
 import NavMenu from "./components/NavMenu";
 import SubjectSearchBar from "./components/SubjectSearchBar";
 import AboutUs from "./components/AboutUs";
-import img1 from "../src/Assets/img1.webp"
+import img1 from "../src/Assets/img1.webp";
 import Footer from "./components/Footer";
+import StdJoinPage from "./components/StdJoinPage";
 
 function App() {
   return (
@@ -26,19 +27,20 @@ function App() {
         <GridItem area="header" bgGradient='linear(to-l, #7928CA, #FF0080)'>
           <NavBar></NavBar>
         </GridItem>
-        <GridItem area="nav" bgGradient='linear(to-l, #7928CA, #FF0080)' color="green" padding="10px">
+        <GridItem area="nav" bgGradient='linear(to-l, #7928CA, #FF0080)' color="green" paddingBottom="100px">
           <NavMenu></NavMenu>
         </GridItem>
-        <GridItem area="main" bgGradient='linear(to-l, #7928CA, #FF0080)' color="blue" height="300px" position="relative">
+        <GridItem area="main" bgGradient='linear(to-l, #7928CA, #FF0080)' color="blue" position="relative">
           <Flex justify="space-between" align="center">
             <Routes>
               <Route exact path="/" element={<SubjectSearchBar />} />
-              <Route path="/about" element={<AboutUs />} />
+              <Route exact path="/about" element={<AboutUs />} />
+              <Route exact path="/join-student" element={<StdJoinPage/>}/>
             </Routes>
-            <Image src={img1} id="img1" boxSize="350px" mr="0px" mt="-50px" /> {/* Image at right end */}
+            {/* <Image src={img1} id="img1" boxSize="350px" mr="0px" mt="-50px" /> Image at right end */}
           </Flex>
         </GridItem>
-        <GridItem area="footer" bgGradient='linear(to-l, #7928CA, #FF0080)' color="yellow">
+        <GridItem area="footer" bgGradient='linear(to-l, #7928CA, #FF0080)' color="yellow" >
           <Footer></Footer>
         </GridItem>
       </Grid>

@@ -1,5 +1,35 @@
 #img1 {
-  /* Assuming img1 is the ID of your image */
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 10% 50%);
-  /* Adjust the polygon points to match the shape in your provided image */
+	/* Assuming img1 is the ID of your image */
+	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 15% 60%);
+	/* Adjust the polygon points to match the shape in your provided image */
+ }
+
+
+ 
+ .form-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.form-field {
+  width: calc(50% - 10px); /* Adjust as needed */
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
 }
