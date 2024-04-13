@@ -20,9 +20,9 @@ const Footer = () => {
             Location
           </h2>
           <ul style={{ textAlign: "left", padding: "12px" }}>
-            <li>Home Tution in Jodhpur</li>
+            <li>Home Tution in Jaipur</li>
             <li>Home Tution in Udaipur</li>
-            <li>Home Tution in Jaipur </li>
+            <li>Home Tution in Jodhpur</li>
           </ul>
 
           <hr />
