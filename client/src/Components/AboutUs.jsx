@@ -12,7 +12,7 @@ const AboutUs = () => {
           <Flex justify="space-between" align="center">
             <Flex  direction="column">
               <h1 style={{ color: 'white', fontSize: '2em', fontWeight:'bold', marginLeft: '30px' }}>About Us</h1>
-              <div style={{ color: 'white',  marginBottom: '20px', marginLeft: '10px' }}>
+              <div style={{ color: 'white',  marginBottom: '20px', marginLeft: '30px' }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam hendrerit magna sit amet nunc tincidunt, nec
                 vehicula enim vehicula. Maecenas ultrices eros ut purus viverra, vel rhoncus odio pharetra. Vivamus
                 sollicitudin mi ut mi scelerisque, vel varius nisi tempor. Sed vel neque sem. In hac habitasse platea dictumst.
@@ -21,7 +21,7 @@ const AboutUs = () => {
                 tortor lacinia nec. Integer eget nunc pharetra, aliquam dolor a, placerat est. Vestibulum tincidunt fringilla
                 magna id lobortis.
               </div>
-              <div style={{ color: 'white',  marginBottom: '20px', marginLeft: '10px' }}>
+              <div style={{ color: 'white',  marginBottom: '20px', marginLeft: '30px' }}>
                 Proin bibendum massa nec aliquet iaculis. Sed nec nulla vehicula, cursus ante nec, pellentesque lorem. Nullam
                 ut consectetur metus. Aenean fermentum neque vel eros mattis, nec lacinia ex ultricies. Proin tincidunt elit
                 sed dui tristique, et varius libero tincidunt. Integer ut libero pharetra, vestibulum metus vitae, molestie

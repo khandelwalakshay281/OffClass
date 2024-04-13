@@ -9,7 +9,7 @@ const NavBar = () => {
       <HStack  align="center" justify="center" padding="20px">
         <Image src={Offclass_logo} boxSize="150px"></Image>
         <Text fontSize={25} fontWeight="extrabold" textAlign={ 'center' } color="white">
-          OffClass, Where learning is done off Class.
+          OffClass, Where learning happens off Class.
         </Text>
       </HStack>
     </>
