@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import validator from 'validator';
+
 // import './StdJoinPage.css'; // Import CSS file for styling
 
 const StdJoinPage = () => {
@@ -30,8 +32,16 @@ const StdJoinPage = () => {
     studentAadhar: null,
   });
 
+  const [emailError, setEmailError] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+	  // Check if the email is valid
+	  if (!validateEmail(formData.email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
     console.log(formData);
   };
 
@@ -45,6 +55,10 @@ const StdJoinPage = () => {
     }));
   };
 
+  const validateEmail = (email) => {
+	return validator.isEmail(email);
+ };
+
   return (
     <>
 		<div className="form-container">
@@ -53,8 +67,9 @@ const StdJoinPage = () => {
 		  <form onSubmit={handleSubmit}>
 			 <div className="form-row">
 				<div className="form-field">
-				  <label>Email:</label>
-				  <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+				<label>Email:</label>
+				<input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+              {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
 				</div>
 				<div className="form-field">
 				  <label>Student Name:</label>
