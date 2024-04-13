@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import validator from "validator";
+import ClassOptionsDialog from './classOptionsDialog';
+import "../designComponents/classOptionsDialog.css"
 
 const StdJoinPage = () => {
   const [formData, setFormData] = useState({
@@ -29,31 +32,72 @@ const StdJoinPage = () => {
     studentAadhar: null,
   });
 
+
   const [emailError, setEmailError] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [classOptionsOpen, setClassOptionsOpen] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-	  // Check if the email is valid
-	  if (!validateEmail(formData.email)) {
+    // Check if the email is valid
+    if (!validateEmail(formData.email)) {
       setEmailError('Please enter a valid email address.');
       return;
     }
+
+    // Check if name contains only alphabetical characters and is at most 20 characters long
+    if (!validateName(formData.studentName)) {
+      setNameError('Name should only contain alphabetical characters and must be at most 20 characters long.');
+      return;
+    }
+
     console.log(formData);
   };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked, files } = e.target;
-    const inputValue = type === 'checkbox' ? checked : type === 'file' ? files[0] : value;
+    let inputValue = value;
+
+    if (type === 'checkbox') {
+      inputValue = checked;
+    } else if (type === 'file') {
+      inputValue = files[0];
+    }
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: inputValue,
     }));
+
+    // Clear name error if input is valid
+    setNameError('');
   };
 
-  const validateEmail = (email) => {
-	return validator.isEmail(email);
+  const handleClassInputClick = () => {
+	setClassOptionsOpen(true);
  };
+
+ const handleSelectClassOption = (option) => {
+	setFormData((prevData) => ({
+	  ...prevData,
+	  class: option,
+	}));
+	setClassOptionsOpen(false);
+ };
+
+ const handleCloseClassOptions = () => {
+	setClassOptionsOpen(false);
+ };
+
+  const validateEmail = (email) => {
+    return validator.isEmail(email);
+  };
+
+  const validateName = (name) => {
+    return /^[a-zA-Z]+$/.test(name) && name.length <= 20;
+  };
 
   return (
     <>
@@ -78,7 +122,9 @@ const StdJoinPage = () => {
             </div>
             <div className="form-field">
               <label style={{ color: 'white', fontWeight: 'bold' }}>Class:</label>
-              <input type="text" name="class" placeholder="Enter class" value={formData.class} onChange={handleInputChange} style={{ color: 'black', backgroundColor: 'white', borderRadius: '5px', border: '1px solid black', padding: '5px' }} />
+              <input type="text" name="class" placeholder="Enter class" value={formData.class} onChange={handleInputChange}  onClick={handleClassInputClick} required style={{ color: 'black', backgroundColor: 'white', borderRadius: '5px', border: '1px solid black', padding: '5px' }} />
+				  <ClassOptionsDialog isOpen={classOptionsOpen} onClose={handleCloseClassOptions} onSelect={handleSelectClassOption} />
+
             </div>
           </div>
           <div className="form-row">
@@ -173,20 +219,20 @@ const StdJoinPage = () => {
           </div>
 		  <div className="form-row">
             <div className="form-field">
-              <label style={{ color: 'white', fontWeight: 'bold' }}>
-                <input type="checkbox" name="termsAgreement" checked={formData.termsAgreement} onChange={handleInputChange} required style={{ marginRight: '5px', verticalAlign: 'middle' }} />
-                Terms and Conditions:
-              </label>
-            </div>
-            <div className="form-field">
               <label style={{ color: 'white', fontWeight: 'bold' }}>Student Photo:</label>
               <input type="file" name="studentPhoto" onChange={handleInputChange} style={{ color: 'black', backgroundColor: 'white', borderRadius: '5px', border: '1px solid black', padding: '5px' }} />
             </div>
-          </div>
-          <div className="form-row">
-            <div className="form-field">
+				<div className="form-field">
               <label style={{ color: 'white', fontWeight: 'bold' }}>Student Aadhar:</label>
               <input type="file" name="studentAadhar" onChange={handleInputChange} style={{ color: 'black', backgroundColor: 'white', borderRadius: '5px', border: '1px solid black', padding: '5px' }} />
+            </div>
+          </div>
+          <div className="form-row">         
+				<div className="form-field">
+				<label style={{ color: 'white', fontWeight: 'bold', display: 'flex', alignItems: 'center', width: '150px' }}>
+					Terms and Conditions:
+				   <input type="checkbox" name="termsAgreement" checked={formData.termsAgreement} onChange={handleInputChange} required />
+				</label>            
             </div>
           </div>
           <button type="submit" style={{ backgroundColor: 'blue', color: 'white', fontWeight: 'bold', cursor: 'pointer', padding: '10px', borderRadius: '5px', border: 'none', marginTop: '20px' }}>Submit</button>
