@@ -1,50 +1,51 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box, Button, ButtonGroup, Grid, GridItem, HStack, Show , Image, Flex} from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import NavMenu from "./components/NavMenu";
-import SubjectSearchBar from "./components/SubjectSearchBar";
-import AboutUs from "./components/AboutUs";
+import NavBar from "./Components/NavBar";
+import NavMenu from "./Components/NavMenu";
+import SubjectSearchBar from "./Components/SubjectSearchBar";
+import AboutUs from "./Components/AboutUs";
 import img1 from "../src/Assets/img1.webp";
-import Footer from "./components/Footer";
-import StdJoinPage from "./components/StdJoinPage";
+import Footer from "./Components/Footer";
+import StdJoinPage from "./Components/StdJoinPage";
+import Login from "./Components/Admin/Login";
+import Dashboard from "./Components/Admin/Dashboard";
 
 function App() {
   return (
+    <div>
+       <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="//db.onlinewebfonts.com/c/157c6cc36dd65b1b2adc9e7f3329c761?family=Amazon+Ember"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"></link>
     <Router>
-      <Grid
-        templateAreas={{
-          base: ` "header" "nav" "main" "footer"`,
-          lg: ` "header" "nav" "main" "footer"`,
-        }}
-
-        templateColumns={{
-          base: '1fr',
-          lg: '200px 1fr',
-          xlg: '800px 1fr' // first column of width 200px and second column will stretch across the remaining area
-        }}
-      >
-        <GridItem area="header" bgGradient='linear(to-l, #7928CA, #FF0080)'>
-          <NavBar></NavBar>
-        </GridItem>
-        <GridItem area="nav" bgGradient='linear(to-l, #7928CA, #FF0080)' color="green" paddingBottom="100px">
-          <NavMenu></NavMenu>
-        </GridItem>
-        <GridItem area="main" bgGradient='linear(to-l, #7928CA, #FF0080)' color="blue" position="relative">
-          <Flex justify="space-between" align="center">
+     
+       
+        <NavBar></NavBar>
             <Routes>
               <Route exact path="/" element={<SubjectSearchBar />} />
               <Route exact path="/about" element={<AboutUs />} />
               <Route exact path="/join-student" element={<StdJoinPage/>}/>
+              <Route path='/admin' Component={Login}/>
+              <Route path='/admin/dashboard' Component={Dashboard}/>
             </Routes>
-            {/* <Image src={img1} id="img1" boxSize="350px" mr="0px" mt="-50px" /> Image at right end */}
-          </Flex>
-        </GridItem>
-        <GridItem area="footer" bgGradient='linear(to-l, #7928CA, #FF0080)' color="yellow" >
-          <Footer></Footer>
-        </GridItem>
-      </Grid>
+          
+      
     </Router>
+    <Footer/>
+    </div>
   );
 }
 

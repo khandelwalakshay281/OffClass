@@ -6,79 +6,121 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer style={styles.footer}>
-        <div style={styles.container}>
-          <h2
-            style={{
-              ...styles.text,
-              fontSize: "22px",
-              fontWeight: "bold",
-              fontFamily: "Calibri",
-            }}
-          >
-            Location
-          </h2>
-          <ul style={{ textAlign: "left", padding: "12px" }}>
-            <li>Home Tution in Jaipur</li>
-            <li>Home Tution in Udaipur</li>
-            <li>Home Tution in Jodhpur</li>
-          </ul>
-
-          <hr />
-
-          <h2
-            style={{
-              ...styles.text,
-              fontSize: "22px",
-              fontWeight: "bold",
-              fontFamily: "Calibri",
-              padding: "12px"
-            }}
-          >
-            Follow Us
-          </h2>
-
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <a href="https://www.facebook.com/BillGates/"><FaFacebook /></a>
-            <a href="https://www.linkedin.com/in/williamhgates"><FaLinkedin/></a>
-            <a href="https://twitter.com/BillGates?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><FaXTwitter/></a>
-            <a href="https://www.youtube.com/channel/UCnEiGCE13SUI7ZvojTAVBKw">
-              <TiSocialYoutubeCircular />
-            </a>
+  
+   
+    <footer className="text-center text-lg-start bg-body-tertiary bg-dark text-muted">
+      
+      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      
+        <div className="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        
+        <div>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-google"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-github"></i>
+          </a>
+        </div>
+       
+      </section>
+     
+      <section className="">
+        <div className="container text-center text-md-start mt-5">
+        
+          <div className="row mt-3">
+            
+            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+              <h6 className="text-uppercase fw-bold mb-4">
+                <i className="fas fa-gem me-3"></i>Company name
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer content. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit.
+              </p>
+            </div>
+          
+            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              
+              <h6 className="text-uppercase fw-bold mb-4">
+                Products
+              </h6>
+              <p>
+                <a href="#!" className="text-reset">Angular</a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">React</a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">Vue</a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">Laravel</a>
+              </p>
+            </div>
+           
+            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+              <h6 className="text-uppercase fw-bold mb-4">
+                Useful links
+              </h6>
+              <p>
+                <a href="#!" className="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" className="text-reset">Help</a>
+              </p>
+            </div>
+           
+            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            
+              <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
+              <p>
+                <i className="fas fa-envelope me-3"></i>
+                info@example.com
+              </p>
+              <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+        
           </div>
+      
         </div>
-        <div style={styles.container}>
-          <p style={styles.text}>© 2024 OffClass. All Rights Reserved.</p>
-        </div>
-        <div style={styles.container}>
-          <p style={styles.text}>© 2024 OffClass. All Rights Reserved.</p>
-        </div>
-        <div style={styles.container}>
-          <p style={styles.text}>© 2024 OffClass. All Rights Reserved.</p>
-        </div>
-      </footer>
-    </div>
+      </section>
+     
+      <div className="text-center p-4" Style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+     
+    </footer>
+   
+    
   );
 };
 
-const styles = {
-  footer: {
-    backgroundColor: "#333",
-    color: "#fff",
-    padding: "20px 0",
-    marginTop: "50px",
-    textAlign: "center",
-    display: "flex", // Add this line
-    justifyContent: "space-around", // Add this line if you want to distribute the divs evenly
-  },
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-  },
-  text: {
-    fontSize: "14px",
-  },
-};
+
 
 export default Footer;
